@@ -15,6 +15,19 @@ var generatePassword = function() {
 
 var characters = [];
 
+var addlowercaseLetters = window.confirm("Include lowercase letters?")
+if (addlowercaseLetters) {
+    for (var i = 0; i < lowercassLetters.length; i++) {
+        characters.push(lowercassLetters[i]);
+    }
+}
+
+var adduppercaseLetters = window.confirm("Include uppercase letters?")
+if (adduppercaseLetters) {
+    for (var i = 0; i < uppercaseLetters.length; i++) {
+        characters.push(uppercaseLetters[i]);
+    }
+}
 
 function writePassword() {
   var password = generatePassword();
