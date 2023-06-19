@@ -1,9 +1,9 @@
 var generateBtn = document.querySelector("#generate");
 
-var lowercassLetters = `abcdefghijklmnopqrstuvwxyz` .split
-var uppercaseLetters = `ABCDEFGHIJKLMNOPQRSTUVWXYZ` .split
-var numbers = `0123456789` .split
-var specialCharacters = `!@#$%^&*()-=_+` .split
+var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz".split('');
+var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+var numbers = "0123456789".split('');
+var specialCharacters = "!@#$%^&*()-=_+".split('');
 
 var generatePassword = function() {
     var passwordLength = +window.prompt("Please enter the desired amount of characters for your new password. It must be between 8 and 12 characters:");
@@ -17,8 +17,8 @@ var characters = [];
 
 var addlowercaseLetters = window.confirm("Include lowercase letters?")
 if (addlowercaseLetters) {
-    for (var i = 0; i < lowercassLetters.length; i++) {
-        characters.push(lowercassLetters[i]);
+    for (var i = 0; i < lowercaseLetters.length; i++) {
+        characters.push(lowercaseLetters[i]);
     }
 }
 
@@ -48,13 +48,13 @@ if (characters.length === 0) {
     return "";
 }
 
-var generatedPassword = "";
-for (var i = 0; i < generatedPassword.length; i++) {
+var newpassword = "";
+for (var i = 0; i < passwordLength; i++) {
     var randomeindex = Math.floor(Math.random() * characters.length);
-    generatedPassword += characters[randomeindex]
+    newpassword += characters[randomeindex]
 }
 
-return generatedPassword;
+return newpassword;
 };
 
 function writePassword() {
@@ -62,7 +62,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 generateBtn.addEventListener("click", writePassword);
