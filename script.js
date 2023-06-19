@@ -6,11 +6,11 @@ var numbers = `0123456789` .split
 var specialCharacters = `!@#$%^&*()-=_+` .split
 
 var generatePassword = function() {
-    var passwordLength = +window.prompt("Please enter the desired amount of characters for your new password. It must be between 8 and 12 characters:")
+    var passwordLength = +window.prompt("Please enter the desired amount of characters for your new password. It must be between 8 and 12 characters:");
 
-    if (passwordLength !== passwordLength || passwordLength > 8 || passwordLength < 128) {
+    if (typeof passwordLength !== `number` || passwordLength < 8 || passwordLength > 128) {
     window.alert("Invalid length.")
-    return " ";
+    return "";
 }
 
 var characters = [];
@@ -42,6 +42,20 @@ if (addspeacialCharacters) {
         characters.push(specialCharacters[i])
     }
 }
+
+if (characters.length === 0) {
+    alert("You must select at least one character type.")
+    return "";
+}
+
+var generatedPassword = "";
+for (var i = 0; i < generatedPassword.length; i++) {
+    var randomeindex = Math.floor(Math.random() * characters.length);
+    generatedPassword += characters[randomeindex]
+}
+
+return generatedPassword;
+};
 
 function writePassword() {
   var password = generatePassword();
