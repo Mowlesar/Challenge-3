@@ -29,6 +29,20 @@ if (adduppercaseLetters) {
     }
 }
 
+var addnumbers = window.confirm("Include numbers?")
+if (addnumbers) {
+    for (var i = 0; i < numbers.length; i++) {
+        characters.push(numbers[i]);
+    }
+}
+
+var addspeacialCharacters = window.confirm("Include special characters?")
+if (addspeacialCharacters) {
+    for (var i=0; i < specialCharacters.length; i++) {
+        characters.push(specialCharacters[i])
+    }
+}
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
